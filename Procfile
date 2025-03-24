@@ -1,1 +1,1 @@
-web: gunicorn pops.wsgi:application 
+web: cd /opt/render/project/src && gunicorn pops.wsgi:application 
