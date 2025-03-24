@@ -7,6 +7,7 @@ class SoldEquipment(models.Model):
     serial_number = models.CharField(max_length=50, unique=True)
     model = models.CharField(max_length=50)
     sale_date = models.DateField()
+    customer = models.CharField(max_length=200, null=True, blank=True)
 
     def __str__(self):
         return f"{self.model} - {self.serial_number}"

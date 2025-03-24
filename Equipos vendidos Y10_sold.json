@@ -1,0 +1,1544 @@
+[
+  {
+    "serial_number": "1T0310KXVEC267054",
+    "model": "310K",
+    "sale_date": "2015-01-02",
+    "customer": "SULLAIR ARGENTINA S A"
+  },
+  {
+    "serial_number": "1T0310SKJEC268738",
+    "model": "310SK",
+    "sale_date": "2015-02-11",
+    "customer": "FAVIO PAEZ"
+  },
+  {
+    "serial_number": "1T0310KXCEC267904",
+    "model": "310K",
+    "sale_date": "2015-02-11",
+    "customer": "PEÑA CONSTRUCCIONES S.R.L."
+  },
+  {
+    "serial_number": "1DW670GXVEC663157",
+    "model": "670G",
+    "sale_date": "2015-02-13",
+    "customer": "PIEDRA PAMPA S.R.L."
+  },
+  {
+    "serial_number": "1T0310KXTEC268102",
+    "model": "310K",
+    "sale_date": "2015-02-13",
+    "customer": "FUNDAR OBRAS S.A."
+  },
+  {
+    "serial_number": "1DW670GXPEC663153",
+    "model": "670G",
+    "sale_date": "2015-03-09",
+    "customer": "HNOS SANDIN SRL"
+  },
+  {
+    "serial_number": "1FF160GXKED055924",
+    "model": "160G",
+    "sale_date": "2015-03-13",
+    "customer": "CHIMEN AIKE S A"
+  },
+  {
+    "serial_number": "1T0310KXLEC273102",
+    "model": "310K",
+    "sale_date": "2015-03-17",
+    "customer": "JULIO EDUARDO PERUJO"
+  },
+  {
+    "serial_number": "1T0310SKCEC268756",
+    "model": "310SK",
+    "sale_date": "2015-03-17",
+    "customer": "CRISTIAN RODRIGO NAVARRETE ARGEL"
+  },
+  {
+    "serial_number": "1T0310KXJEC268363",
+    "model": "310K",
+    "sale_date": "2015-03-17",
+    "customer": "DIRECCION GENERAL DE SERVICIOS PUBLICOS"
+  },
+  {
+    "serial_number": "1T0310SKAEC269330",
+    "model": "310SK",
+    "sale_date": "2015-03-18",
+    "customer": "JUAN CARLOS APOLLINAIRE"
+  },
+  {
+    "serial_number": "1T0310KXLEC268112",
+    "model": "310K",
+    "sale_date": "2015-03-18",
+    "customer": "PREMA COMPAÑIA DEL SUR S.A."
+  },
+  {
+    "serial_number": "1DW544KZPED661353",
+    "model": "544K",
+    "sale_date": "2015-03-18",
+    "customer": "AIRES DEL GRANDE S.A."
+  },
+  {
+    "serial_number": "1DW770GXCEC663302",
+    "model": "770G",
+    "sale_date": "2015-04-15",
+    "customer": "DAPCO S.R.L."
+  },
+  {
+    "serial_number": "1DW670GXHEC665799",
+    "model": "670G",
+    "sale_date": "2015-04-20",
+    "customer": "WINDLAND S.A."
+  },
+  {
+    "serial_number": "1T0310KXAEC268349",
+    "model": "310K",
+    "sale_date": "2015-04-20",
+    "customer": "PIEDRA PAMPA S.R.L."
+  },
+  {
+    "serial_number": "1T0310SKKEC269337",
+    "model": "310SK",
+    "sale_date": "2015-04-21",
+    "customer": "SIGUEL OSCAR RAIMUNDO"
+  },
+  {
+    "serial_number": "1FF160GXLED055929",
+    "model": "160G",
+    "sale_date": "2015-04-21",
+    "customer": "PHOENIX S.A."
+  },
+  {
+    "serial_number": "1T0310SKKFC277391",
+    "model": "310SK",
+    "sale_date": "2015-04-24",
+    "customer": "JI SOCIEDAD ANONIMA"
+  },
+  {
+    "serial_number": "1T0326EAAEG274331",
+    "model": "326E",
+    "sale_date": "2015-04-24",
+    "customer": "CHIMEN AIKE S A"
+  },
+  {
+    "serial_number": "1FF120DXVCD037666",
+    "model": "120D",
+    "sale_date": "2015-04-24",
+    "customer": "ANGEL MASCIOTRA S.A."
+  },
+  {
+    "serial_number": "1T0320EAKEG273722",
+    "model": "320E",
+    "sale_date": "2015-05-04",
+    "customer": "JOSE RAUL PEREZ TORRES"
+  },
+  {
+    "serial_number": "1DW624KZAEC664759",
+    "model": "624K",
+    "sale_date": "2015-05-07",
+    "customer": "ANDINO FREEMAN"
+  },
+  {
+    "serial_number": "1BZ310KXCEC000405",
+    "model": "310K",
+    "sale_date": "2015-05-28",
+    "customer": "MUNICIPALIDAD DE GOBERNADOR GREGORES"
+  },
+  {
+    "serial_number": "1T0310KXKEC267146",
+    "model": "310K",
+    "sale_date": "2015-05-29",
+    "customer": "SULLAIR ARGENTINA S.A."
+  },
+  {
+    "serial_number": "1DW624KZVFC666768",
+    "model": "624K",
+    "sale_date": "2015-06-01",
+    "customer": "FERCANT S.R.L."
+  },
+  {
+    "serial_number": "1FF210GXPFD523153",
+    "model": "210G",
+    "sale_date": "2015-06-04",
+    "customer": "PAONE Y CIA S.A."
+  },
+  {
+    "serial_number": "1FF210GXCED522936",
+    "model": "210G",
+    "sale_date": "2015-06-04",
+    "customer": "ANGEL MASCIOTRA S.A."
+  },
+  {
+    "serial_number": "1T0310SKVFC276052",
+    "model": "310SK",
+    "sale_date": "2015-06-05",
+    "customer": "ANGEL MASCIOTRA S.A."
+  },
+  {
+    "serial_number": "1YNWL56AVEC000287",
+    "model": "WL56",
+    "sale_date": "2015-06-05",
+    "customer": "MABEL NELIDA CARRILLO"
+  },
+  {
+    "serial_number": "1FF160GXLED055896",
+    "model": "160G",
+    "sale_date": "2015-06-05",
+    "customer": "PAONE Y CIA S.A."
+  },
+  {
+    "serial_number": "1FF210GXPFD523086",
+    "model": "210G",
+    "sale_date": "2015-06-15",
+    "customer": "CONSTRUCTORA VIAL FUEGUINA S.A."
+  },
+  {
+    "serial_number": "1DW624KZCEC663754",
+    "model": "624K",
+    "sale_date": "2015-06-18",
+    "customer": "MIGUEL PANQUILTO"
+  },
+  {
+    "serial_number": "1FF210GXJFD523138",
+    "model": "210G",
+    "sale_date": "2015-06-26",
+    "customer": "SEAVE S.A."
+  },
+  {
+    "serial_number": "1FF160GXTFD056215",
+    "model": "160G",
+    "sale_date": "2015-07-17",
+    "customer": "CHIMEN AIKE S A"
+  },
+  {
+    "serial_number": "1DW670GXHFC666579",
+    "model": "670G",
+    "sale_date": "2015-07-22",
+    "customer": "WINDLAND S.A."
+  },
+  {
+    "serial_number": "1FF130GXKED040736",
+    "model": "130G",
+    "sale_date": "2015-08-12",
+    "customer": "ANGEL MASCIOTRA S.A."
+  },
+  {
+    "serial_number": "1DW624KZAFC670871",
+    "model": "624K",
+    "sale_date": "2015-08-25",
+    "customer": "PROPAGACION S.A."
+  },
+  {
+    "serial_number": "1DW544KZVFD670514",
+    "model": "544K",
+    "sale_date": "2015-08-25",
+    "customer": "PHOENIX S.A."
+  },
+  {
+    "serial_number": "1BZ310KXCEC000445",
+    "model": "310K",
+    "sale_date": "2015-08-27",
+    "customer": "CONSTRUCCIONES INDUSTRIALES S.A."
+  },
+  {
+    "serial_number": "1BZ310KXPEC000433",
+    "model": "310K",
+    "sale_date": "2015-08-27",
+    "customer": "CONSTRUCCIONES INDUSTRIALES S.A."
+  },
+  {
+    "serial_number": "1T0310LXLFC283189",
+    "model": "310L",
+    "sale_date": "2015-08-28",
+    "customer": "SULLAIR ARGENTINA S.A."
+  },
+  {
+    "serial_number": "1T0310SKJFC275755",
+    "model": "310SK",
+    "sale_date": "2015-09-16",
+    "customer": "VCA S.R.L."
+  },
+  {
+    "serial_number": "1FF210GXCFD523473",
+    "model": "210G",
+    "sale_date": "2015-09-18",
+    "customer": "ANGEL MASCIOTRA S.A."
+  },
+  {
+    "serial_number": "1DW670GXKFD668088",
+    "model": "670G",
+    "sale_date": "2015-09-18",
+    "customer": "IBEROAMERICANA DE SERVICIOS S"
+  },
+  {
+    "serial_number": "1FF210GXVFD523501",
+    "model": "210G",
+    "sale_date": "2015-09-21",
+    "customer": "RUMA S.A."
+  },
+  {
+    "serial_number": "1DW544KZLFD671228",
+    "model": "544K",
+    "sale_date": "2015-09-25",
+    "customer": "ANGEL MASCIOTRA S.A."
+  },
+  {
+    "serial_number": "1T0310SLLFC280226",
+    "model": "310SL",
+    "sale_date": "2015-10-20",
+    "customer": "CLAUDIO JUAREZ"
+  },
+  {
+    "serial_number": "1FF160GXHFD056257",
+    "model": "160G",
+    "sale_date": "2015-12-22",
+    "customer": "ERNESTO ABBATE"
+  },
+  {
+    "serial_number": "1T0323EALFG284052",
+    "model": "323E",
+    "sale_date": "2015-12-28",
+    "customer": "DAPCO S.R.L."
+  },
+  {
+    "serial_number": "1T0310SLLFC284129",
+    "model": "310SL",
+    "sale_date": "2016-01-05",
+    "customer": "PEDRO ANTONIO SOTO VERA"
+  },
+  {
+    "serial_number": "1T0310LXCFC285410",
+    "model": "310L",
+    "sale_date": "2016-01-13",
+    "customer": null
+  },
+  {
+    "serial_number": "1DW670GXVFC669106",
+    "model": "670G",
+    "sale_date": "2016-01-13",
+    "customer": "PAONE Y CIA S.A."
+  },
+  {
+    "serial_number": "1T0310SLTFC284525",
+    "model": "310SL",
+    "sale_date": "2016-01-14",
+    "customer": "PIEDRA PAMPA S.R.L."
+  },
+  {
+    "serial_number": "1DW524KZEFD668385",
+    "model": "524K",
+    "sale_date": "2016-01-14",
+    "customer": "SULLAIR ARGENTINA S.A."
+  },
+  {
+    "serial_number": "1T0310SLVFC286962",
+    "model": "310SL",
+    "sale_date": "2016-01-15",
+    "customer": "PIEDRA PAMPA S.R.L."
+  },
+  {
+    "serial_number": "1T0310LXLFC285492",
+    "model": "310L",
+    "sale_date": "2016-01-15",
+    "customer": null
+  },
+  {
+    "serial_number": "1FF210GXVFD523577",
+    "model": "210G",
+    "sale_date": "2016-01-16",
+    "customer": "PHOENIX S.A."
+  },
+  {
+    "serial_number": "1DW624KZEFC671541",
+    "model": "624K",
+    "sale_date": "2016-01-16",
+    "customer": "PEJKOVIK S.A."
+  },
+  {
+    "serial_number": "1T0310LXKFC285498",
+    "model": "310L",
+    "sale_date": "2016-01-16",
+    "customer": "FREILE CONSTRUCCIONES S.R.L."
+  },
+  {
+    "serial_number": "1T0310LXCFC285559",
+    "model": "310L",
+    "sale_date": "2016-02-11",
+    "customer": "IBEROAMERICANA DE SERVICIOS S"
+  },
+  {
+    "serial_number": "1T0310LXAFC285619",
+    "model": "310L",
+    "sale_date": "2016-02-11",
+    "customer": "IBEROAMERICANA DE SERVICIOS S"
+  },
+  {
+    "serial_number": "1T0310LXEFC285432",
+    "model": "310L",
+    "sale_date": "2016-02-11",
+    "customer": "IBEROAMERICANA DE SERVICIOS S"
+  },
+  {
+    "serial_number": "1DW844KXLFC671778",
+    "model": "844K",
+    "sale_date": "2016-02-23",
+    "customer": "YACIMIENTOS CARBONIFEROS RIO TURBIO"
+  },
+  {
+    "serial_number": "1T0310SLKFC286570",
+    "model": "310SL",
+    "sale_date": "2016-03-23",
+    "customer": "IONA MARIA CLELAND"
+  },
+  {
+    "serial_number": "1T0310SLAFC288423",
+    "model": "310SL",
+    "sale_date": "2016-03-29",
+    "customer": "PROALSA SRL"
+  },
+  {
+    "serial_number": "1DW644KZCFC670358",
+    "model": "644K",
+    "sale_date": "2016-04-01",
+    "customer": "SEAVE S.A."
+  },
+  {
+    "serial_number": "1T0320EAHFG288845",
+    "model": "320E",
+    "sale_date": "2016-04-14",
+    "customer": "PAONE Y CIA S.A."
+  },
+  {
+    "serial_number": "1FF210GXAFD523595",
+    "model": "210G",
+    "sale_date": "2016-04-14",
+    "customer": "GRESUCO S.A."
+  },
+  {
+    "serial_number": "1T0310SLHFC288621",
+    "model": "310SL",
+    "sale_date": "2016-04-16",
+    "customer": "CESILIO CRESPO FLORES"
+  },
+  {
+    "serial_number": "1FF160GXLFD056242",
+    "model": "160G",
+    "sale_date": "2016-04-26",
+    "customer": null
+  },
+  {
+    "serial_number": "1FF160GXKFD056170",
+    "model": "160G",
+    "sale_date": "2016-04-26",
+    "customer": null
+  },
+  {
+    "serial_number": "1T0310LXVFC290219",
+    "model": "310L",
+    "sale_date": "2016-04-29",
+    "customer": "PROALSA S.R.L."
+  },
+  {
+    "serial_number": "1YNWL56AHFC000327",
+    "model": "WL56",
+    "sale_date": "2016-07-01",
+    "customer": "PAONE Y CIA S.A."
+  },
+  {
+    "serial_number": "1FF160GXHFD056310",
+    "model": "160G",
+    "sale_date": "2016-07-07",
+    "customer": "ANGEL MASCIOTRA S.A."
+  },
+  {
+    "serial_number": "1T0318EAKFG291026",
+    "model": "318E",
+    "sale_date": "2016-07-07",
+    "customer": "INGENIERIA AUSTRAL SRL"
+  },
+  {
+    "serial_number": "1T0310SLCGC293894",
+    "model": "310SL",
+    "sale_date": "2016-07-28",
+    "customer": "INVERSUR SRL"
+  },
+  {
+    "serial_number": "1FF210GXCFD523738",
+    "model": "210G",
+    "sale_date": "2016-07-28",
+    "customer": null
+  },
+  {
+    "serial_number": "1T0850JXTFC284314",
+    "model": "850J",
+    "sale_date": "2016-07-28",
+    "customer": "ANGEL MASCIOTRA S.A."
+  },
+  {
+    "serial_number": "1FF160GXEFD056261",
+    "model": "160G",
+    "sale_date": "2016-08-22",
+    "customer": "TRANSPA S.R.L."
+  },
+  {
+    "serial_number": "1FF130GXPGD041063",
+    "model": "130G",
+    "sale_date": "2016-08-24",
+    "customer": "MONTAJES INDUSTRIALES OBRAS Y SERVICIOS S.R.L."
+  },
+  {
+    "serial_number": "1FF250GXKGC609883",
+    "model": "250G",
+    "sale_date": "2016-08-24",
+    "customer": "EMPRESA LISANDRO V CANGA SA"
+  },
+  {
+    "serial_number": "1T0310LXPFC290232",
+    "model": "310L",
+    "sale_date": "2016-08-25",
+    "customer": "PIEDRA PAMPA S.R.L."
+  },
+  {
+    "serial_number": "1BZ524KXVGD000366",
+    "model": "524K",
+    "sale_date": "2016-08-26",
+    "customer": null
+  },
+  {
+    "serial_number": "1BZ544KXPGD000016",
+    "model": "544K",
+    "sale_date": "2016-08-29",
+    "customer": "EDISUD SA"
+  },
+  {
+    "serial_number": "1T0310SLKGC293889",
+    "model": "310SL",
+    "sale_date": "2016-08-29",
+    "customer": "NAKON SUR S.A."
+  },
+  {
+    "serial_number": "1T0310SLJFC289177",
+    "model": "310SL",
+    "sale_date": "2016-08-30",
+    "customer": "GRESUCO S.A."
+  },
+  {
+    "serial_number": "1BZ544KXKGD000017",
+    "model": "544K",
+    "sale_date": "2016-09-28",
+    "customer": "EDISUD SA"
+  },
+  {
+    "serial_number": "1FF250GXHDC608964",
+    "model": "250G",
+    "sale_date": "2016-10-17",
+    "customer": "PIEDRA PAMPA S.R.L."
+  },
+  {
+    "serial_number": "1T0310SLTGC297860",
+    "model": "310SL",
+    "sale_date": "2016-11-15",
+    "customer": "INGENIERIA FUEGUINA SRL"
+  },
+  {
+    "serial_number": "1T0310SLVGC293802",
+    "model": "310SL",
+    "sale_date": "2016-11-15",
+    "customer": "JOSE ALBERTO PEREZ"
+  },
+  {
+    "serial_number": "1FF130GXKGD041050",
+    "model": "130G",
+    "sale_date": "2016-11-15",
+    "customer": "ANGEL MASCIOTRA S.A."
+  },
+  {
+    "serial_number": "1T0310LXKFC289180",
+    "model": "310L",
+    "sale_date": "2016-11-15",
+    "customer": "VARGAS SRL"
+  },
+  {
+    "serial_number": "1T0310SLLGC300069",
+    "model": "310SL",
+    "sale_date": "2016-11-18",
+    "customer": "INGENIERIA FUEGUINA"
+  },
+  {
+    "serial_number": "1FF210GXPED522888",
+    "model": "210G",
+    "sale_date": "2017-02-02",
+    "customer": "ANGEL MASCIOTRA S.A."
+  },
+  {
+    "serial_number": "1T0310SLVGC300456",
+    "model": "310SL",
+    "sale_date": "2017-02-08",
+    "customer": "ELIODORO VILLAROEL"
+  },
+  {
+    "serial_number": "1T0310SLPGC300080",
+    "model": "310SL",
+    "sale_date": "2017-02-10",
+    "customer": "ALFA 80 S.R.L."
+  },
+  {
+    "serial_number": "1T0310SLTGC303219",
+    "model": "310SL",
+    "sale_date": "2017-02-21",
+    "customer": "RODIO SRL"
+  },
+  {
+    "serial_number": "1BZ310KXCGC000836",
+    "model": "310K",
+    "sale_date": "2017-02-22",
+    "customer": "A D M VIALIDAD PROV CHUBUT"
+  },
+  {
+    "serial_number": "1DW670GXLGC677081",
+    "model": "670G",
+    "sale_date": "2017-03-03",
+    "customer": "EDISUD S.A."
+  },
+  {
+    "serial_number": "1T0318EAAGG294516",
+    "model": "318E",
+    "sale_date": "2017-03-14",
+    "customer": null
+  },
+  {
+    "serial_number": "1F9210GXCHD520496",
+    "model": "210G",
+    "sale_date": "2017-03-28",
+    "customer": null
+  },
+  {
+    "serial_number": "1F9210GXTHD520497",
+    "model": "210G",
+    "sale_date": "2017-03-28",
+    "customer": "LAL S.A.C.I.C.I.A."
+  },
+  {
+    "serial_number": "1F9160GXVGD055058",
+    "model": "160G",
+    "sale_date": "2017-03-31",
+    "customer": "GADA SA"
+  },
+  {
+    "serial_number": "1T0326EAAFG287744",
+    "model": "326E",
+    "sale_date": "2017-05-02",
+    "customer": "BGCONS SRL"
+  },
+  {
+    "serial_number": "1BZ310KXCGC000934",
+    "model": "310K",
+    "sale_date": "2017-05-05",
+    "customer": "LEYMER SRL"
+  },
+  {
+    "serial_number": "1YNWL56ACGC000372",
+    "model": "WL56",
+    "sale_date": "2017-05-08",
+    "customer": "MUNICIPALIDAD DE GRAL ALVEAR"
+  },
+  {
+    "serial_number": "1BZ310KXTGC000918",
+    "model": "310K",
+    "sale_date": "2017-05-22",
+    "customer": "RONDAL ARISPE RONALD"
+  },
+  {
+    "serial_number": "1T0310SLKGC303725",
+    "model": "310SL",
+    "sale_date": "2017-05-24",
+    "customer": "HERNAN MENESES"
+  },
+  {
+    "serial_number": "1T0310LXTGC292739",
+    "model": "310L",
+    "sale_date": "2017-05-31",
+    "customer": "SULLAIR ARGENTINA S.A"
+  },
+  {
+    "serial_number": "1BZ310LACHC000069",
+    "model": "310L",
+    "sale_date": "2017-06-05",
+    "customer": "VRG SA"
+  },
+  {
+    "serial_number": "1DW670GXVHC679475",
+    "model": "670G",
+    "sale_date": "2017-06-14",
+    "customer": "PIEDRA PAMPA S.R.L."
+  },
+  {
+    "serial_number": "1T0310SLTHC306459",
+    "model": "310SL",
+    "sale_date": "2017-06-14",
+    "customer": "GRESUCO S.A."
+  },
+  {
+    "serial_number": "1T0310SLEHC307222",
+    "model": "310SL",
+    "sale_date": "2017-07-26",
+    "customer": "MUNICIPALIDAD DE RIO GRANDE"
+  },
+  {
+    "serial_number": "1F9210GXKHD520535",
+    "model": "210G",
+    "sale_date": "2017-08-09",
+    "customer": "RUTASUR SA"
+  },
+  {
+    "serial_number": "1BZ310LAJHC000319",
+    "model": "310L",
+    "sale_date": "2017-08-10",
+    "customer": "SULLAIR AGENTINA SA"
+  },
+  {
+    "serial_number": "1DW770GXCHC679110",
+    "model": "770G",
+    "sale_date": "2017-08-15",
+    "customer": "ESTANCIA MANANTIAL ESPEJO SA"
+  },
+  {
+    "serial_number": "1BZ624KAEHC001059",
+    "model": "624K-II",
+    "sale_date": "2017-08-16",
+    "customer": "PROPAGACION S.A."
+  },
+  {
+    "serial_number": "1T0310SLKGC303899",
+    "model": "310SL",
+    "sale_date": "2017-08-16",
+    "customer": "MARANATA SRL"
+  },
+  {
+    "serial_number": "1F9210GXCHD520532",
+    "model": "210G",
+    "sale_date": "2017-08-18",
+    "customer": "MARANATA SRL"
+  },
+  {
+    "serial_number": "1DW670GXHHC679738",
+    "model": "670G",
+    "sale_date": "2017-08-23",
+    "customer": null
+  },
+  {
+    "serial_number": "1DW670GXLHC679883",
+    "model": "670G",
+    "sale_date": "2017-08-24",
+    "customer": "MUNICIPALIDAD DE RIO GRANDE"
+  },
+  {
+    "serial_number": "1DW670GXPHC680152",
+    "model": "670G",
+    "sale_date": "2017-09-04",
+    "customer": "MUNICIPALIDAD DE RIO GRANDE"
+  },
+  {
+    "serial_number": "1DW670GXLHC680158",
+    "model": "670G",
+    "sale_date": "2017-09-08",
+    "customer": null
+  },
+  {
+    "serial_number": "1YNWL56ALHD000419",
+    "model": "WL56",
+    "sale_date": "2017-10-10",
+    "customer": "SERGAS S R L"
+  },
+  {
+    "serial_number": "1FF210GXVFD523563",
+    "model": "210G",
+    "sale_date": "2017-10-23",
+    "customer": null
+  },
+  {
+    "serial_number": "1BZ310LATHC000591",
+    "model": "310L",
+    "sale_date": "2017-11-08",
+    "customer": "SULLAIR AGENTINA SA"
+  },
+  {
+    "serial_number": "1FF130GXPGD041225",
+    "model": "130G",
+    "sale_date": "2017-11-13",
+    "customer": "CONSTRUCTORA VIAL FUEGUINA S.A."
+  },
+  {
+    "serial_number": "1F9210GXVHD520684",
+    "model": "210G",
+    "sale_date": "2017-11-16",
+    "customer": null
+  },
+  {
+    "serial_number": "1DW670GXEHC682611",
+    "model": "670G",
+    "sale_date": "2017-11-24",
+    "customer": "SULLAIR ARGENTINA S.A"
+  },
+  {
+    "serial_number": "1T0310SLEGC303217",
+    "model": "310SL",
+    "sale_date": "2017-11-27",
+    "customer": "POLO SUR SA"
+  },
+  {
+    "serial_number": "1BZ544KALHD001026",
+    "model": "544K-II",
+    "sale_date": "2017-11-28",
+    "customer": "DEMARCHI SERVICIOS SRL"
+  },
+  {
+    "serial_number": "1T0310SLTHC307322",
+    "model": "310SL",
+    "sale_date": "2017-12-12",
+    "customer": "VARGAS SRL"
+  },
+  {
+    "serial_number": "1DW770GXKHC682554",
+    "model": "770G",
+    "sale_date": "2017-12-21",
+    "customer": "DIRECCION NACIONAL DE VIALIDAD"
+  },
+  {
+    "serial_number": "1BZ310LAPHC000592",
+    "model": "310L",
+    "sale_date": "2018-01-18",
+    "customer": "SULLAIR AGENTINA SA"
+  },
+  {
+    "serial_number": "1T0310SLLHC315950",
+    "model": "310SL",
+    "sale_date": "2018-01-29",
+    "customer": "ACRI CONSTRUCCIONES S.A."
+  },
+  {
+    "serial_number": "1DW544KZLED661832",
+    "model": "544K",
+    "sale_date": "2018-02-23",
+    "customer": "STEKLI SARITA SENOBIA JOSÉ SEEWALD"
+  },
+  {
+    "serial_number": "1BZ544KAEHD001059",
+    "model": "544K-II",
+    "sale_date": "2018-03-05",
+    "customer": "MUNICIPALIDAD DE RIO GRANDE"
+  },
+  {
+    "serial_number": "1T0310SLJHC323413",
+    "model": "310SL",
+    "sale_date": "2018-03-26",
+    "customer": "FREEMANO ANDINO"
+  },
+  {
+    "serial_number": "1T0310SLPHC316183",
+    "model": "310SL",
+    "sale_date": "2018-04-09",
+    "customer": "JULIO EDUARDO PERUJO"
+  },
+  {
+    "serial_number": "1FF130GXPHD041503",
+    "model": "130G",
+    "sale_date": "2018-04-11",
+    "customer": "ICEO S.A."
+  },
+  {
+    "serial_number": "1T0318GACHG319278",
+    "model": "318G",
+    "sale_date": "2018-04-12",
+    "customer": "BROCA S.R.L."
+  },
+  {
+    "serial_number": "1T0310SLCHC321615",
+    "model": "310SL",
+    "sale_date": "2018-04-13",
+    "customer": "SERGIO ANTONIO PROVENZANO"
+  },
+  {
+    "serial_number": "1YNWL56AJHD000494",
+    "model": "WL56",
+    "sale_date": "2018-04-13",
+    "customer": "ANGEL MASCIOTRA S.A."
+  },
+  {
+    "serial_number": "1T0310SLTHC315999",
+    "model": "310SL",
+    "sale_date": "2018-04-13",
+    "customer": "AGUA PATAGONICA S.R.L."
+  },
+  {
+    "serial_number": "1T0310SLVHC316013",
+    "model": "310SL",
+    "sale_date": "2018-04-13",
+    "customer": "FERNANDEZ PEDRO WENCESLAO"
+  },
+  {
+    "serial_number": "1T0310SLJHC315991",
+    "model": "310SL",
+    "sale_date": "2018-04-13",
+    "customer": "FERNANDEZ PEDRO WENCESLAO"
+  },
+  {
+    "serial_number": "1T0310SLEHC307138",
+    "model": "310SL",
+    "sale_date": "2018-04-13",
+    "customer": "DAPCO S.R.L."
+  },
+  {
+    "serial_number": "1T0320EACHG322465",
+    "model": "320E",
+    "sale_date": "2018-04-27",
+    "customer": "LOS POZOS S.A."
+  },
+  {
+    "serial_number": "1T0310SLCHC323633",
+    "model": "310SL",
+    "sale_date": "2018-06-22",
+    "customer": "ALFA 80 S.R.L."
+  },
+  {
+    "serial_number": "1F9210GXVHD520720",
+    "model": "210G",
+    "sale_date": "2018-06-22",
+    "customer": null
+  },
+  {
+    "serial_number": "1F9210GXCHD520739",
+    "model": "210G",
+    "sale_date": "2018-08-28",
+    "customer": null
+  },
+  {
+    "serial_number": "1T0325GJKKG353219",
+    "model": "325G",
+    "sale_date": "2019-07-05",
+    "customer": "A D M VIALIDAD PROV CHUBUT"
+  },
+  {
+    "serial_number": "1BZ310LAEHC000782",
+    "model": "310L",
+    "sale_date": "2019-07-05",
+    "customer": null
+  },
+  {
+    "serial_number": "1YNWL56AVHD000496",
+    "model": "WL56",
+    "sale_date": "2019-08-28",
+    "customer": "PIEDRA PAMPA S.R.L."
+  },
+  {
+    "serial_number": "1T0318GAJHG322244",
+    "model": "318G",
+    "sale_date": "2019-09-28",
+    "customer": "PETROVIAL SRL"
+  },
+  {
+    "serial_number": "1T0310SLHKC361920",
+    "model": "310SL",
+    "sale_date": "2019-11-21",
+    "customer": "HALLIDAY JUAN CRISTIAN"
+  },
+  {
+    "serial_number": "1T0310SLPLC382581",
+    "model": "310SL",
+    "sale_date": "2020-08-13",
+    "customer": "WALTERMOLINA"
+  },
+  {
+    "serial_number": "1T0310LXHHC307818",
+    "model": "310L",
+    "sale_date": "2020-08-22",
+    "customer": "VARGAS S R L"
+  },
+  {
+    "serial_number": "1FF035GXHHK279740",
+    "model": "35G",
+    "sale_date": "2020-09-11",
+    "customer": "CONSTRUCTORA VIAL FUEGÜINA S A"
+  },
+  {
+    "serial_number": "1FF035GXCGK278119",
+    "model": "35G",
+    "sale_date": "2020-09-11",
+    "customer": "NAKON SUR S.A."
+  },
+  {
+    "serial_number": "1F9210GXCLD521639",
+    "model": "210G",
+    "sale_date": "2020-11-27",
+    "customer": "ZAPCOGROUP"
+  },
+  {
+    "serial_number": "1BZ310LALLC003705",
+    "model": "310L",
+    "sale_date": "2021-01-08",
+    "customer": "DAMIAN DALMAS"
+  },
+  {
+    "serial_number": "1BZ310LALLC003722",
+    "model": "310L",
+    "sale_date": "2021-01-14",
+    "customer": "DAPCO S.R.L."
+  },
+  {
+    "serial_number": "1BZ524KAVLD002172",
+    "model": "524K-II",
+    "sale_date": "2021-01-14",
+    "customer": "SULLAIR ARGENTINA S.A. FRANCISCO WINSNES"
+  },
+  {
+    "serial_number": "1BZ310LAELC003724",
+    "model": "310L",
+    "sale_date": "2021-02-02",
+    "customer": "RONDAL ARISPE RONALD"
+  },
+  {
+    "serial_number": "1F9210GXHLD521718",
+    "model": "210G",
+    "sale_date": "2021-02-24",
+    "customer": "ANGEL MASCIOTRA S.A."
+  },
+  {
+    "serial_number": "1FF130GXHHD041544",
+    "model": "130G",
+    "sale_date": "2021-04-04",
+    "customer": "INGENIERIA AUSTRAL SRL"
+  },
+  {
+    "serial_number": "1T0310SLELC388019",
+    "model": "310SL",
+    "sale_date": "2021-04-23",
+    "customer": "MUNICIPALIDAD DE RIO GRANDE"
+  },
+  {
+    "serial_number": "1T0320GMLMG395283",
+    "model": "320G",
+    "sale_date": "2021-07-01",
+    "customer": "JLC CONSTRUCTORA S.A SARTINI GAS SRL"
+  },
+  {
+    "serial_number": "1T0320GMCMG394758",
+    "model": "320G",
+    "sale_date": "2021-07-01",
+    "customer": "JOSE AMADOR CASTRO"
+  },
+  {
+    "serial_number": "1T0325GMEMG394151",
+    "model": "325G",
+    "sale_date": "2021-08-03",
+    "customer": "JLC CONSTRUCTORA S.A SARTINI GAS SRL"
+  },
+  {
+    "serial_number": "1T0410LXVMC397840",
+    "model": "410L",
+    "sale_date": "2021-08-25",
+    "customer": "BRIDGE S R L"
+  },
+  {
+    "serial_number": "1BZ310LAJMC004882",
+    "model": "310L",
+    "sale_date": "2021-09-01",
+    "customer": "JUAN VIDAURRE"
+  },
+  {
+    "serial_number": "1T0310SLEMC395179",
+    "model": "310SL",
+    "sale_date": "2021-09-01",
+    "customer": "ING LISARDO V CANGA SA"
+  },
+  {
+    "serial_number": "1T0310SLCFC287821",
+    "model": "310SL",
+    "sale_date": "2021-09-01",
+    "customer": "JOSE AMADOR CASTRO"
+  },
+  {
+    "serial_number": "1BZ310LAKMC004881",
+    "model": "310L",
+    "sale_date": "2021-09-29",
+    "customer": "GANADERA CONDOR S.A."
+  },
+  {
+    "serial_number": "1F9210GXCMD522033",
+    "model": "210G",
+    "sale_date": "2021-10-01",
+    "customer": "INGENIERIA AUSTRAL SRL"
+  },
+  {
+    "serial_number": "1T0310SLEMC403278",
+    "model": "310SL",
+    "sale_date": "2021-10-30",
+    "customer": "ECO SRL"
+  },
+  {
+    "serial_number": "1T0310SLLLC388082",
+    "model": "310SL",
+    "sale_date": "2021-11-09",
+    "customer": "VARGASSRL"
+  },
+  {
+    "serial_number": "1DW544KZJFD671286",
+    "model": "544K",
+    "sale_date": "2021-12-01",
+    "customer": "BARRIENTOS ANTONIO HECTOR"
+  },
+  {
+    "serial_number": "1F9200GXTMD020370",
+    "model": "200G",
+    "sale_date": "2021-12-02",
+    "customer": "INGENIERIA FUEGUINA SRL"
+  },
+  {
+    "serial_number": "1F9210GXLLC521724",
+    "model": "210G",
+    "sale_date": "2021-12-02",
+    "customer": "ON TRANSPORTES Y SERVICIOS S.R.L,"
+  },
+  {
+    "serial_number": "1BZ524KAAMD003003",
+    "model": "524K-II",
+    "sale_date": "2022-01-28",
+    "customer": "PETROVIAL SRL"
+  },
+  {
+    "serial_number": "1BZ310LAVMC005954",
+    "model": "310L",
+    "sale_date": "2022-01-31",
+    "customer": "LEMARCHAND MARCOS"
+  },
+  {
+    "serial_number": "1FF160GXPDD055421",
+    "model": "160G",
+    "sale_date": "2022-01-31",
+    "customer": "NAKON SUR S.A."
+  },
+  {
+    "serial_number": "1T0310SLHMC403330",
+    "model": "310SL",
+    "sale_date": "2022-02-16",
+    "customer": "VICTOR SANCHEZ"
+  },
+  {
+    "serial_number": "1F9130GXEMD040327",
+    "model": "130G",
+    "sale_date": "2022-02-28",
+    "customer": "DANNA PABLO ESTEBAN"
+  },
+  {
+    "serial_number": "1BZ310LAPMC006144",
+    "model": "310L",
+    "sale_date": "2022-03-29",
+    "customer": "PIEDRA PAMPA S.R.L."
+  },
+  {
+    "serial_number": "1BZ620GALNC000312",
+    "model": "620G",
+    "sale_date": "2022-03-30",
+    "customer": "RIGEL S.R.L."
+  },
+  {
+    "serial_number": "1BZ310LACMC005953",
+    "model": "310L",
+    "sale_date": "2022-04-19",
+    "customer": "DIRECCION PROVINCIAL DE VIALID"
+  },
+  {
+    "serial_number": "1BZ310LAANC006346",
+    "model": "310L",
+    "sale_date": "2022-04-29",
+    "customer": "PIEDRA PAMPA S.R.L."
+  },
+  {
+    "serial_number": "1BZ310LATNC006760",
+    "model": "310L",
+    "sale_date": "2022-05-03",
+    "customer": "SULLAIR ARGENTINA S.A. FRANCISCO WINSNES"
+  },
+  {
+    "serial_number": "1BZ310LAKNA006790",
+    "model": "310L",
+    "sale_date": "2022-05-30",
+    "customer": "PIEDRA PAMPA S.R.L."
+  },
+  {
+    "serial_number": "1BZ310LAPNA006688",
+    "model": "310L",
+    "sale_date": "2022-05-31",
+    "customer": "ALFA 80 S.R.L."
+  },
+  {
+    "serial_number": "1BZ310LACNA006792",
+    "model": "310L",
+    "sale_date": "2022-06-01",
+    "customer": "OIKOS S.A."
+  },
+  {
+    "serial_number": "1F9210GXAND522531",
+    "model": "210G",
+    "sale_date": "2022-06-02",
+    "customer": "T.G. VIAL S.A."
+  },
+  {
+    "serial_number": "1T0310LXLGC292749",
+    "model": "310L",
+    "sale_date": "2022-06-10",
+    "customer": "OMNITRONIC"
+  },
+  {
+    "serial_number": "1T0310LXAGC292653",
+    "model": "310L",
+    "sale_date": "2022-06-10",
+    "customer": "OMNITRONIC"
+  },
+  {
+    "serial_number": "1BZ310LAKNA006689",
+    "model": "310L",
+    "sale_date": "2022-06-30",
+    "customer": "PIEDRA PAMPA S.R.L."
+  },
+  {
+    "serial_number": "1BZ310LACNA006842",
+    "model": "310L",
+    "sale_date": "2022-07-01",
+    "customer": "JUAN VIDAURRE"
+  },
+  {
+    "serial_number": "1F9210GXVND522530",
+    "model": "210G",
+    "sale_date": "2022-07-01",
+    "customer": "DANNA PABLO ESTEBAN"
+  },
+  {
+    "serial_number": "1T0310SLCNC416521",
+    "model": "310SL",
+    "sale_date": "2022-07-01",
+    "customer": "ANGEL MASCIOTRA S.A."
+  },
+  {
+    "serial_number": "1BZ670GAJNC000175",
+    "model": "670G",
+    "sale_date": "2022-07-25",
+    "customer": "PRODIN S.R.L."
+  },
+  {
+    "serial_number": "1T0310SLJNC415391",
+    "model": "310SL",
+    "sale_date": "2022-07-25",
+    "customer": "HERNAN MENESES"
+  },
+  {
+    "serial_number": "1BZ544KACMD001260",
+    "model": "544K-II",
+    "sale_date": "2022-07-25",
+    "customer": "ECO SRL"
+  },
+  {
+    "serial_number": "1BZ310LAENC007467",
+    "model": "310L",
+    "sale_date": "2022-08-12",
+    "customer": "SULLAIR ARGENTINA S.A. FRANCISCO WINSNES"
+  },
+  {
+    "serial_number": "1F9160GXAND055415",
+    "model": "160G",
+    "sale_date": "2022-08-30",
+    "customer": "CONSTRUCTORA VIAL FUEGÜINA S A"
+  },
+  {
+    "serial_number": "1BZ524KALND003540",
+    "model": "524K-II",
+    "sale_date": "2022-08-30",
+    "customer": "CANGA LISANDRO VICENTE S A"
+  },
+  {
+    "serial_number": "1T0320GMENG422793",
+    "model": "320G",
+    "sale_date": "2022-09-02",
+    "customer": "ANGELO VELAZQUES ALVARADO"
+  },
+  {
+    "serial_number": "1T0318GACNG420607",
+    "model": "318G",
+    "sale_date": "2022-09-02",
+    "customer": "MARIO ANDEMATTEN"
+  },
+  {
+    "serial_number": "1F9200GXHND020530",
+    "model": "200G",
+    "sale_date": "2022-09-05",
+    "customer": "COCCARO HERMANOS CONSTRUCCIONE"
+  },
+  {
+    "serial_number": "1F9210GXPGD520404",
+    "model": "210G",
+    "sale_date": "2022-09-08",
+    "customer": "COCCARO HERMANOS CONSTRUCCIONE"
+  },
+  {
+    "serial_number": "1BZ624KALNC001796",
+    "model": "624K-II",
+    "sale_date": "2022-09-12",
+    "customer": "HNOS. SANDIN S.R.L."
+  },
+  {
+    "serial_number": "1F9130GXVND040548",
+    "model": "130G",
+    "sale_date": "2022-09-30",
+    "customer": "ANGEL MASCIOTRA S.A."
+  },
+  {
+    "serial_number": "1BZ444GALNDX00253",
+    "model": "444 G",
+    "sale_date": "2022-09-30",
+    "customer": "SANATORIUM SA"
+  },
+  {
+    "serial_number": "1BZ310LAANC007934",
+    "model": "310L",
+    "sale_date": "2022-10-21",
+    "customer": "SULLAIR ARGENTINA S.A. FRANCISCO WINSNES"
+  },
+  {
+    "serial_number": "1BZ310LAHNC007712",
+    "model": "310L",
+    "sale_date": "2022-10-25",
+    "customer": "LA JUCIELA S.A."
+  },
+  {
+    "serial_number": "1BZ670GAKNC000224",
+    "model": "670G",
+    "sale_date": "2022-10-25",
+    "customer": "PIEDRA PAMPA S.R.L."
+  },
+  {
+    "serial_number": "1BZ772GAEND000003",
+    "model": "772G",
+    "sale_date": "2022-10-28",
+    "customer": "ROBERTO ALEJANDRO DIAZ"
+  },
+  {
+    "serial_number": "1F9130GXPND040575",
+    "model": "130G",
+    "sale_date": "2022-11-29",
+    "customer": "AMBIENTE SUR INGENIERIA SRL"
+  },
+  {
+    "serial_number": "1BZ310LACNC007678",
+    "model": "310L",
+    "sale_date": "2022-11-29",
+    "customer": "VARGAS SRL"
+  },
+  {
+    "serial_number": "1T0310SLTGC300448",
+    "model": "310SL",
+    "sale_date": "2022-12-09",
+    "customer": "ALFA 80 S.R.L."
+  },
+  {
+    "serial_number": "1BZ310LACNC008121",
+    "model": "310L",
+    "sale_date": "2022-12-29",
+    "customer": "CANGA LISANDRO VICENTE S A"
+  },
+  {
+    "serial_number": "1BZ310LAJNA007925",
+    "model": "310L",
+    "sale_date": "2022-12-29",
+    "customer": "PETROVIAL SRL"
+  },
+  {
+    "serial_number": "1T0310SLHNC430609",
+    "model": "310SL",
+    "sale_date": "2023-01-25",
+    "customer": "MARIA BEHETY"
+  },
+  {
+    "serial_number": "1BZ310LAPNA008005",
+    "model": "310L",
+    "sale_date": "2023-01-25",
+    "customer": "PETROSAR PRODUCCION Y SERVICIOS SA"
+  },
+  {
+    "serial_number": "1BZ850JACNC000579",
+    "model": "850J-II",
+    "sale_date": "2023-01-25",
+    "customer": "CERRO CASTOR SA"
+  },
+  {
+    "serial_number": "1BZ670GACNC000266",
+    "model": "670G",
+    "sale_date": "2023-04-28",
+    "customer": "PIEDRA PAMPA S.R.L."
+  },
+  {
+    "serial_number": "1FF210GXCFD523165",
+    "model": "210G",
+    "sale_date": "2023-05-08",
+    "customer": "SEAVE S.A."
+  },
+  {
+    "serial_number": "1BZ310LAANA008318",
+    "model": "310L",
+    "sale_date": "2023-05-17",
+    "customer": "CRISTIAN NAVARRETE"
+  },
+  {
+    "serial_number": "1YN644GAENCA00112",
+    "model": "644 G",
+    "sale_date": "2023-06-30",
+    "customer": "KESEN SA"
+  },
+  {
+    "serial_number": "1F9210GXAND523050",
+    "model": "210G",
+    "sale_date": "2023-07-25",
+    "customer": "ROBERTO ALEJANDRO DIAZ"
+  },
+  {
+    "serial_number": "1BZ310LAAPA010251",
+    "model": "310L",
+    "sale_date": "2023-08-24",
+    "customer": "FREILE CONSTRUCCIONES S.R.L."
+  },
+  {
+    "serial_number": "1BZ310LALPA009926",
+    "model": "310L",
+    "sale_date": "2023-08-24",
+    "customer": "NELSON OLIVA S.R.L."
+  },
+  {
+    "serial_number": "1BZ310LAEPA010139",
+    "model": "310L",
+    "sale_date": "2023-09-13",
+    "customer": "IBEROAMERICANA DE SERVICIOS SA"
+  },
+  {
+    "serial_number": "1BZ310LALNA008675",
+    "model": "310L",
+    "sale_date": "2023-09-13",
+    "customer": "IBEROAMERICANA DE SERVICIOS SA"
+  },
+  {
+    "serial_number": "1T0325GKVNG429605",
+    "model": "325G",
+    "sale_date": "2023-10-11",
+    "customer": "PRODIN SRL"
+  },
+  {
+    "serial_number": "1BZ310LAKNC008477",
+    "model": "310L",
+    "sale_date": "2023-10-19",
+    "customer": "PEJKOVIC S.A."
+  },
+  {
+    "serial_number": "1T0310SLHPC442925",
+    "model": "310SL",
+    "sale_date": "2023-10-23",
+    "customer": "PAONE Y CIA S.A."
+  },
+  {
+    "serial_number": "1F9130GXAND040597",
+    "model": "130G",
+    "sale_date": "2023-12-20",
+    "customer": "ANGEL MASCIOTRA S.A."
+  },
+  {
+    "serial_number": "1F9200GXLND020591",
+    "model": "200G",
+    "sale_date": "2024-02-01",
+    "customer": "ANGEL MASCIOTRA S.A."
+  },
+  {
+    "serial_number": "1F9210GXPND523137",
+    "model": "210G",
+    "sale_date": "2024-02-19",
+    "customer": "ANGEL MASCIOTRA S.A."
+  },
+  {
+    "serial_number": "1T0318GAHNG420595",
+    "model": "318G",
+    "sale_date": "2024-02-20",
+    "customer": "MAFERS SA"
+  },
+  {
+    "serial_number": "1DW670GXTCC649040",
+    "model": "670G",
+    "sale_date": "2024-02-22",
+    "customer": "PETROVIAL SRL"
+  },
+  {
+    "serial_number": "1DW444KZPBD637013",
+    "model": "444K",
+    "sale_date": "2024-02-22",
+    "customer": "PETROVIAL SRL"
+  },
+  {
+    "serial_number": "1T0310SLJPC442738",
+    "model": "310SL",
+    "sale_date": "2024-03-28",
+    "customer": "PROPAGACION"
+  },
+  {
+    "serial_number": "1F9210GXANC523099",
+    "model": "210G",
+    "sale_date": "2024-05-17",
+    "customer": "ANGEL MASCIOTRA S.A."
+  },
+  {
+    "serial_number": "1BZ310LATPA010192",
+    "model": "310L",
+    "sale_date": "2024-07-01",
+    "customer": "BANCO CHUBUT - OHM SERVICIOS PETROLEROS"
+  },
+  {
+    "serial_number": "1BZ310LAHPA009927",
+    "model": "310L",
+    "sale_date": "2024-08-31",
+    "customer": "TRANSPORTES FIGUEROA S A"
+  },
+  {
+    "serial_number": "1BZ310LAPPA009934",
+    "model": "310L",
+    "sale_date": "2024-08-31",
+    "customer": "VARGAS SRL"
+  },
+  {
+    "serial_number": "1BZ670GAENC000251",
+    "model": "670G",
+    "sale_date": "2024-08-31",
+    "customer": "PIEDRA PAMPA S.R.L."
+  },
+  {
+    "serial_number": "1BZ310LAANA008321",
+    "model": "310L",
+    "sale_date": "2024-10-24",
+    "customer": "ALFA 80 S.R.L."
+  },
+  {
+    "serial_number": "1F9130GXEND040605",
+    "model": "130G",
+    "sale_date": "2024-11-30",
+    "customer": "POLO SUR SA"
+  },
+  {
+    "serial_number": "1T0318GKTNG433182",
+    "model": "318G",
+    "sale_date": "2024-12-02",
+    "customer": "POLO SUR SA"
+  },
+  {
+    "serial_number": "1T0325GMCPG440597",
+    "model": "325G",
+    "sale_date": "2024-12-03",
+    "customer": "ECO SRL"
+  },
+  {
+    "serial_number": "1BZ750JATRD000725",
+    "model": "750J-II",
+    "sale_date": "2025-01-08",
+    "customer": "UEP CHUBUT"
+  }
+]

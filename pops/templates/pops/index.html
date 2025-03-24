@@ -131,18 +131,17 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="table-responsive" style="max-height: 500px;">
-                            <table class="table table-striped table-fixed">
+                        <div class="table-responsive">
+                            <table class="table table-striped">
                                 <thead>
                                     <tr>
                                         <th>PIN</th>
                                         <th>Modelo</th>
+                                        <th>Cliente</th>
                                         <th>Fecha de Venta</th>
-                                        <th>Meses sin Servicio</th>
                                     </tr>
                                 </thead>
-                                <tbody id="equipmentWithoutServicesTable">
-                                    <!-- Results will be inserted here -->
+                                <tbody id="equipmentWithoutServicesBody">
                                 </tbody>
                             </table>
                         </div>
@@ -366,37 +365,42 @@
         document.getElementById('getEquipmentWithoutServices').addEventListener('click', async () => {
             try {
                 const response = await fetch('/equipment-without-services/');
+                if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status}`);
+                }
                 const data = await response.json();
                 
-                if (data.status === 'success') {
-                    // Actualizar períodos
-                    document.getElementById('salesPeriod').textContent = data.period.sales;
-                    document.getElementById('servicesPeriod').textContent = data.period.services;
-                    
-                    // Actualizar contadores
-                    document.getElementById('totalSold').textContent = data.total_sold;
-                    document.getElementById('totalWithoutService').textContent = data.total_without_service;
-                    document.getElementById('totalWithService').textContent = data.total_sold - data.total_without_service;
-                    
-                    // Actualizar tabla
-                    const table = document.getElementById('equipmentWithoutServicesTable');
-                    table.innerHTML = '';
-                    
-                    data.equipment.forEach(eq => {
+                // Actualizar períodos
+                document.getElementById('salesPeriod').textContent = data.sales_period;
+                document.getElementById('servicesPeriod').textContent = data.services_period;
+                
+                // Actualizar contadores
+                document.getElementById('totalSold').textContent = data.total_sold;
+                document.getElementById('totalWithoutService').textContent = data.total_without_service;
+                document.getElementById('totalWithService').textContent = data.total_sold - data.total_without_service;
+                
+                // Actualizar tabla
+                const tbody = document.getElementById('equipmentWithoutServicesBody');
+                tbody.innerHTML = '';
+                
+                if (data.equipment_without_services && Array.isArray(data.equipment_without_services)) {
+                    data.equipment_without_services.forEach(equipment => {
                         const row = document.createElement('tr');
                         row.innerHTML = `
-                            <td>${eq.serial_number}</td>
-                            <td>${eq.model}</td>
-                            <td>${eq.sale_date}</td>
-                            <td>${eq.months_without_service.toFixed(1)}</td>
+                            <td>${equipment.serial_number || ''}</td>
+                            <td>${equipment.model || ''}</td>
+                            <td>${equipment.customer || 'N/A'}</td>
+                            <td>${equipment.sale_date || ''}</td>
+                            <td>${equipment.years_without_service ? equipment.years_without_service.toFixed(1) : ''}</td>
                         `;
-                        table.appendChild(row);
+                        tbody.appendChild(row);
                     });
                 } else {
-                    alert('Error obteniendo equipos sin servicios: ' + data.message);
+                    console.error('No se encontraron equipos sin servicios en la respuesta');
                 }
             } catch (error) {
-                alert('Error obteniendo equipos sin servicios: ' + error);
+                console.error('Error:', error);
+                alert('Error obteniendo equipos sin servicios: ' + error.message);
             }
         });
     </script>
