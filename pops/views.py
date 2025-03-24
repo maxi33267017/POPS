@@ -36,13 +36,14 @@ def upload_service_records(request):
             data = json.loads(request.body)
             ServiceRecord.objects.all().delete()  # Limpiar registros existentes
             for item in data:
+                # Convertir la fecha al formato correcto
+                service_date = datetime.strptime(item['service_date'], '%Y-%m-%d').date()
+                
                 ServiceRecord.objects.create(
                     serial_number=item['serial_number'],
                     model=item['model'],
-                    service_date=datetime.strptime(item['service_date'], '%Y-%m-%d').date(),
-                    invoice_number=item['invoice_number'],
-                    total_amount=Decimal(str(item['total_amount'])),
-                    service_type=item['service_type']
+                    service_date=service_date,
+                    total_amount=Decimal(str(item['total_amount']))
                 )
             return JsonResponse({'status': 'success'})
         except Exception as e:
