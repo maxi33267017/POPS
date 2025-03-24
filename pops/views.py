@@ -288,8 +288,53 @@ def export_to_excel(request):
             ws_revenue.cell(row=row, column=1, value=model['model'])
             ws_revenue.cell(row=row, column=2, value=float(model['total_revenue']))
 
+        # 5. Hoja de equipos sin servicios
+        ws_no_services = wb.create_sheet("Equipos sin Servicios")
+        headers = ['PIN', 'Modelo', 'Fecha de Venta', 'Meses sin Servicio']
+        for col, header in enumerate(headers, 1):
+            cell = ws_no_services.cell(row=1, column=col, value=header)
+            cell.font = header_font
+            cell.fill = header_fill
+            cell.alignment = center_alignment
+
+        # Obtener datos de equipos sin servicios
+        sold_equipment = SoldEquipment.objects.all().values('serial_number', 'model', 'sale_date')
+        service_start = date(2023, 1, 1)
+        service_end = date(2025, 2, 28)
+        serviced_pins = set(ServiceRecord.objects.filter(
+            service_date__range=[service_start, service_end]
+        ).values_list('serial_number', flat=True))
+        
+        equipment_without_services = [
+            {
+                'serial_number': eq['serial_number'],
+                'model': eq['model'],
+                'sale_date': eq['sale_date'].strftime('%Y-%m-%d'),
+                'months_without_service': (date.today() - eq['sale_date']).days / 30.44
+            }
+            for eq in sold_equipment
+            if eq['serial_number'] not in serviced_pins
+        ]
+        
+        equipment_without_services.sort(key=lambda x: x['months_without_service'], reverse=True)
+
+        # Agregar resumen al inicio de la hoja
+        ws_no_services.cell(row=2, column=1, value="Total Equipos Vendidos:")
+        ws_no_services.cell(row=2, column=2, value=len(sold_equipment))
+        ws_no_services.cell(row=3, column=1, value="Equipos sin Servicios:")
+        ws_no_services.cell(row=3, column=2, value=len(equipment_without_services))
+        ws_no_services.cell(row=4, column=1, value="Período de Servicios:")
+        ws_no_services.cell(row=4, column=2, value=f"{service_start.strftime('%Y-%m-%d')} a {service_end.strftime('%Y-%m-%d')}")
+
+        # Agregar los datos de equipos sin servicios
+        for row, eq in enumerate(equipment_without_services, 6):  # Empezar desde la fila 6 para dejar espacio para el resumen
+            ws_no_services.cell(row=row, column=1, value=eq['serial_number'])
+            ws_no_services.cell(row=row, column=2, value=eq['model'])
+            ws_no_services.cell(row=row, column=3, value=eq['sale_date'])
+            ws_no_services.cell(row=row, column=4, value=round(eq['months_without_service'], 1))
+
         # Ajustar el ancho de las columnas
-        for ws in [ws_monthly, ws_serviced, ws_sold, ws_revenue]:
+        for ws in [ws_monthly, ws_serviced, ws_sold, ws_revenue, ws_no_services]:
             for column in ws.columns:
                 max_length = 0
                 column = [cell for cell in column]
@@ -308,6 +353,54 @@ def export_to_excel(request):
         wb.save(response)
         return response
 
+    except Exception as e:
+        return JsonResponse({
+            'status': 'error',
+            'message': str(e)
+        })
+
+def get_equipment_without_services(request):
+    try:
+        # Obtener la fecha de hace 10 años
+        ten_years_ago = date.today() - relativedelta(years=10)
+        
+        # Obtener todos los equipos vendidos en los últimos 10 años
+        sold_equipment = SoldEquipment.objects.filter(
+            sale_date__gte=ten_years_ago
+        ).values('serial_number', 'model', 'sale_date')
+        
+        # Obtener los PINs que han recibido servicios entre enero 2023 y febrero 2025
+        service_start = date(2023, 1, 1)
+        service_end = date(2025, 2, 28)
+        serviced_pins = set(ServiceRecord.objects.filter(
+            service_date__range=[service_start, service_end]
+        ).values_list('serial_number', flat=True))
+        
+        # Filtrar los equipos vendidos que no han recibido servicios en el período
+        equipment_without_services = [
+            {
+                'serial_number': eq['serial_number'],
+                'model': eq['model'],
+                'sale_date': eq['sale_date'].strftime('%Y-%m-%d'),
+                'months_without_service': (date.today() - eq['sale_date']).days / 30.44  # Promedio de días por mes
+            }
+            for eq in sold_equipment
+            if eq['serial_number'] not in serviced_pins
+        ]
+        
+        # Ordenar por meses sin servicio (descendente)
+        equipment_without_services.sort(key=lambda x: x['months_without_service'], reverse=True)
+        
+        return JsonResponse({
+            'status': 'success',
+            'equipment': equipment_without_services,
+            'total_sold': len(sold_equipment),
+            'total_without_service': len(equipment_without_services),
+            'period': {
+                'sales': f"{ten_years_ago.strftime('%Y-%m-%d')} a {date.today().strftime('%Y-%m-%d')}",
+                'services': f"{service_start.strftime('%Y-%m-%d')} a {service_end.strftime('%Y-%m-%d')}"
+            }
+        })
     except Exception as e:
         return JsonResponse({
             'status': 'error',
