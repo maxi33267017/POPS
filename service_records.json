@@ -1,4 +1,127 @@
 [
+
+    {
+        "serial_number": "FF200DX512623",
+        "model": "200D",
+        "service_date": "2025-03-05",
+        "invoice_number": "10-697",
+        "total_amount": 569.21,
+        "service_type": "SERVICIO"
+    },
+
+    {
+        "serial_number": "T0310SJ156551",
+        "model": "310SJ",
+        "service_date": "2025-03-05",
+        "invoice_number": "10-703",
+        "total_amount": 520.55,
+        "service_type": "SERVICIO"
+    },
+
+    {
+        "serial_number": "T0310SJ138365",
+        "model": "310SJ",
+        "service_date": "2025-03-05",
+        "invoice_number": "10-704",
+        "total_amount": 370,
+        "service_type": "SERVICIO"
+    },
+    {
+        "serial_number": "1FF160GXLD055929",
+        "model": "160D",
+        "service_date": "2025-03-05",
+        "invoice_number": "10-707",
+        "total_amount": 684.17,
+        "service_type": "SERVICIO"
+    },
+    {
+        "serial_number": "1FF160GXLD055929",
+        "model": "160D",
+        "service_date": "2025-03-05",
+        "invoice_number": "10-707",
+        "total_amount": 684.17,
+        "service_type": "SERVICIO"
+    },
+
+    {
+        "serial_number": "DW544KZ643305",
+        "model": "544K",
+        "service_date": "2025-03-05",
+        "invoice_number": "10-706",
+        "total_amount": 834.17,
+        "service_type": "SERVICIO"
+    },
+
+    {
+        "serial_number": "1T0325GMEMG394151",
+        "model": "325G",
+        "service_date": "2025-03-05",
+        "invoice_number": "10-699",
+        "total_amount": 760,
+        "service_type": "SERVICIO"
+    },
+ 
+    {
+        "serial_number": "T0850JX238381",
+        "model": "850J",
+        "service_date": "2025-03-05",
+        "invoice_number": "10-712",
+        "total_amount": 12255.91,
+        "service_type": "SERVICIO"
+    },
+
+    {
+        "serial_number": "1F9210GXVHD520720",
+        "model": "210G",
+        "service_date": "2025-03-05",
+        "invoice_number": "10-724",
+        "total_amount": 2363.79,
+        "service_type": "SERVICIO"
+    },
+    
+    
+    {
+        "serial_number": "1FF210GXCF0523738",
+        "model": "210G",
+        "service_date": "2025-03-05",
+        "invoice_number": "10-745",
+        "total_amount": 1382.96,
+        "service_type": "SERVICIO"
+    },
+    {
+        "serial_number": "DW624KZ634312",
+        "model": "624G",
+        "service_date": "2025-03-05",
+        "invoice_number": "10-746",
+        "total_amount": 1011.22,
+        "service_type": "SERVICIO"
+    },
+    {
+        "serial_number": "T0310SJ138365",
+        "model": "310SJ",
+        "service_date": "2025-03-05",
+        "invoice_number": "10-747",
+        "total_amount": 330,
+        "service_type": "SERVICIO"
+    },
+    {
+        "serial_number": "1BZ310LAANA008321",
+        "model": "310L",
+        "service_date": "2025-03-05",
+        "invoice_number": "10-750",
+        "total_amount": 605.73,
+        "service_type": "SERVICIO"
+    },
+ 
+    {
+        "serial_number": "1FF130GXPGD041225",
+        "model": "130G",
+        "service_date": "2025-03-05",
+        "invoice_number": "10-766",
+        "total_amount": 939.20,
+        "service_type": "SERVICIO"
+    },
+ 
     {
         "serial_number": "T0310SG951104",
         "model": "310SG",
@@ -3263,4 +3386,5 @@
         "total_amount": 130.04,
         "service_type": "SERVICIO"
     }
+
 ]

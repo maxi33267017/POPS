@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>POPS Calculator</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
     <style>
         .table-fixed {
             width: 100%;
@@ -15,11 +16,180 @@
             background-color: #fff;
             z-index: 1;
         }
+        .section-header {
+            cursor: pointer;
+            padding: 10px;
+            background-color: #f8f9fa;
+            border: 1px solid #dee2e6;
+            border-radius: 4px;
+            margin-bottom: 5px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .section-header:hover {
+            background-color: #e9ecef;
+        }
+        .section-content {
+            display: none;
+            padding: 15px;
+            border: 1px solid #dee2e6;
+            border-radius: 4px;
+            margin-bottom: 15px;
+        }
+        .section-content.active {
+            display: block;
+        }
+        .toggle-icon {
+            transition: transform 0.3s ease;
+        }
+        .section-header.active .toggle-icon {
+            transform: rotate(180deg);
+        }
+        .model-card {
+            margin-bottom: 10px;
+        }
+        .card {
+            margin-bottom: 20px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+        }
+        .card-header {
+            background-color: #f8f9fa;
+            border-bottom: 1px solid rgba(0,0,0,0.125);
+        }
+        .alert {
+            margin-bottom: 0;
+        }
+        .notification {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            padding: 15px;
+            border-radius: 5px;
+            color: white;
+            z-index: 1000;
+            max-width: 400px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+            display: none;
+        }
+        .notification.success {
+            background-color: #28a745;
+        }
+        .notification.error {
+            background-color: #dc3545;
+        }
+        .notification.warning {
+            background-color: #ffc107;
+            color: #212529;
+        }
+        .notification.info {
+            background-color: #17a2b8;
+        }
+        .loading-spinner {
+            display: inline-block;
+            width: 1rem;
+            height: 1rem;
+            border: 0.2em solid currentColor;
+            border-right-color: transparent;
+            border-radius: 50%;
+            animation: spinner-border .75s linear infinite;
+            margin-right: 0.5rem;
+        }
+        @keyframes spinner-border {
+            to { transform: rotate(360deg); }
+        }
+        
+        /* Estilos para la sección de equipos sin servicio */
+        .section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem;
+            background-color: #f8f9fa;
+            cursor: pointer;
+            border-bottom: 1px solid #dee2e6;
+        }
+        
+        .section-header:hover {
+            background-color: #e9ecef;
+        }
+        
+        .toggle-icon {
+            transition: transform 0.3s ease;
+        }
+        
+        .section-header.collapsed .toggle-icon {
+            transform: rotate(-90deg);
+        }
+        
+        .section-content {
+            display: block;
+            transition: all 0.3s ease;
+        }
+        
+        .section-content.collapsed {
+            display: none;
+        }
+        
+        .model-card {
+            border: 1px solid #dee2e6;
+            border-radius: 0.25rem;
+            padding: 1rem;
+            margin-bottom: 1rem;
+            background-color: #fff;
+        }
+        
+        .model-card h6 {
+            margin-bottom: 0.5rem;
+            color: #495057;
+        }
+        
+        .model-stats {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 0.5rem;
+            font-size: 0.875rem;
+            color: #6c757d;
+        }
+        
+        .equipment-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0.75rem 1rem;
+            border: 1px solid #dee2e6;
+            margin-bottom: 0.5rem;
+            border-radius: 0.25rem;
+            background-color: #fff;
+        }
+        
+        .equipment-info {
+            flex-grow: 1;
+        }
+        
+        .equipment-serial {
+            font-weight: bold;
+            color: #495057;
+        }
+        
+        .equipment-model {
+            color: #6c757d;
+            font-size: 0.875rem;
+        }
+        
+        .equipment-date {
+            color: #6c757d;
+            font-size: 0.875rem;
+            margin-left: 1rem;
+        }
     </style>
 </head>
 <body>
     <div class="container mt-5">
         <h1 class="mb-4">POPS Calculator - PATAGONIA MAQUINARIAS</h1>
+        
+        <!-- Notificación -->
+        <div id="notification" class="notification"></div>
         
         <div class="row mb-4">
             <div class="col-md-6">
@@ -30,8 +200,9 @@
                     <div class="card-body">
                         <form id="soldEquipmentForm">
                             <div class="mb-3">
-                                <label for="soldEquipmentFile" class="form-label">JSON File</label>
-                                <input type="file" class="form-control" id="soldEquipmentFile" accept=".json">
+                                <label for="soldEquipmentFile" class="form-label">Archivo (JSON o Excel)</label>
+                                <input type="file" class="form-control" id="soldEquipmentFile" accept=".json,.xlsx,.xls">
+                                <small class="text-muted">Formatos aceptados: JSON, Excel (.xlsx, .xls)</small>
                             </div>
                             <button type="submit" class="btn btn-primary">Cargar</button>
                         </form>
@@ -47,8 +218,9 @@
                     <div class="card-body">
                         <form id="serviceRecordsForm">
                             <div class="mb-3">
-                                <label for="serviceRecordsFile" class="form-label">JSON File</label>
-                                <input type="file" class="form-control" id="serviceRecordsFile" accept=".json">
+                                <label for="serviceRecordsFile" class="form-label">Archivo (JSON o Excel)</label>
+                                <input type="file" class="form-control" id="serviceRecordsFile" accept=".json,.xlsx,.xls">
+                                <small class="text-muted">Formatos aceptados: JSON, Excel (.xlsx, .xls)</small>
                             </div>
                             <button type="submit" class="btn btn-primary">Cargar</button>
                         </form>
@@ -59,9 +231,26 @@
 
         <div class="row mt-4">
             <div class="col-12 mb-3">
-                <button id="calculatePops" class="btn btn-success">Calcular POPS</button>
-                <button id="getEquipmentWithoutServices" class="btn btn-warning">Ver Equipos sin Servicios</button>
-                <a href="/export-excel/" class="btn btn-success">Export to Excel</a>
+                <div class="card">
+                    <div class="card-header">
+                        <h5 class="card-title mb-0">Cálculo de POPS</h5>
+                    </div>
+                    <div class="card-body">
+                        <button id="calculatePops" class="btn btn-primary mb-3">Calcular POPS</button>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="chart-container" style="position: relative; height:400px; width:100%">
+                                    <canvas id="revenueChart"></canvas>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="chart-container" style="position: relative; height:400px; width:100%">
+                                    <canvas id="popsChart"></canvas>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
 
@@ -77,12 +266,13 @@
                                 <thead>
                                     <tr>
                                         <th>Mes</th>
-                                        <th>Equipos Vendidos</th>
-                                        <th>Servicios Realizados</th>
-                                        <th>Servicios a -10</th>
-                                        <th>POPS</th>
-                                        <th>Servicios a +10</th>
-                                        <th>POPS +10</th>
+                                        <th>Equipos Vendidos (10 años)</th>
+                                        <th>Equipos Únicos Servidos</th>
+                                        <th>Equipos Servidos (-10 años)</th>
+                                        <th>POPS (-10 años)</th>
+                                        <th>Equipos Servidos (+10 años)</th>
+                                        <th>POPS (+10 años)</th>
+                                        <th>Ingresos</th>
                                     </tr>
                                 </thead>
                                 <tbody id="resultsTable">
@@ -102,48 +292,90 @@
                         <h5 class="card-title mb-0">Equipos Vendidos sin Servicios</h5>
                     </div>
                     <div class="card-body">
-                        <div class="row mb-3">
-                            <div class="col-md-6">
-                                <div class="alert alert-info">
-                                    <strong>Período de Ventas:</strong> <span id="salesPeriod">-</span>
+                        <button id="getEquipmentWithoutServices" class="btn btn-warning mb-3">Ver Equipos sin Servicios</button>
+                        <a href="/export-excel/" class="btn btn-success mb-3">Export to Excel</a>
+
+                        <div class="section-header" onclick="toggleSection('filters')">
+                            <h5 class="mb-0">Filtros de Fecha</h5>
+                            <span class="toggle-icon">▼</span>
+                        </div>
+                        <div id="filters" class="section-content">
+                            <div class="row mb-3">
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <label for="serviceStartDate">Fecha Inicio Servicios:</label>
+                                        <input type="date" class="form-control" id="serviceStartDate">
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="alert alert-info">
-                                    <strong>Período de Servicios:</strong> <span id="servicesPeriod">-</span>
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <label for="serviceEndDate">Fecha Fin Servicios:</label>
+                                        <input type="date" class="form-control" id="serviceEndDate">
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <label>&nbsp;</label>
+                                        <button id="filterServices" class="btn btn-primary form-control">Filtrar</button>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                        <div class="row mb-3">
-                            <div class="col-md-4">
-                                <div class="alert alert-info">
-                                    <strong>Total Equipos Vendidos:</strong> <span id="totalSold">-</span>
+
+                        <div class="section-header" onclick="toggleSection('summary')">
+                            <h5 class="mb-0">Resumen</h5>
+                            <span class="toggle-icon">▼</span>
+                        </div>
+                        <div id="summary" class="section-content">
+                            <div class="row mb-3">
+                                <div class="col-md-6">
+                                    <div class="alert alert-info">
+                                        <strong>Período de Ventas:</strong> <span id="salesPeriod">-</span>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="alert alert-info">
+                                        <strong>Período de Servicios:</strong> <span id="servicesPeriod">-</span>
+                                    </div>
                                 </div>
                             </div>
-                            <div class="col-md-4">
-                                <div class="alert alert-warning">
-                                    <strong>Equipos sin Servicios:</strong> <span id="totalWithoutService">-</span>
+                            <div class="row mb-3">
+                                <div class="col-md-4">
+                                    <div class="alert alert-info">
+                                        <strong>Total Equipos Vendidos:</strong> <span id="totalSold">-</span>
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="col-md-4">
-                                <div class="alert alert-success">
-                                    <strong>Equipos con Servicios:</strong> <span id="totalWithService">-</span>
+                                <div class="col-md-4">
+                                    <div class="alert alert-warning">
+                                        <strong>Equipos sin Servicios:</strong> <span id="totalWithoutService">-</span>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="alert alert-success">
+                                        <strong>Equipos con Servicios:</strong> <span id="totalWithService">-</span>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                        <div class="table-responsive">
-                            <table class="table table-striped">
-                                <thead>
-                                    <tr>
-                                        <th>PIN</th>
-                                        <th>Modelo</th>
-                                        <th>Cliente</th>
-                                        <th>Fecha de Venta</th>
-                                    </tr>
-                                </thead>
-                                <tbody id="equipmentWithoutServicesBody">
-                                </tbody>
-                            </table>
+
+                        <div class="section-header" onclick="toggleSection('modelTotals')">
+                            <h5 class="mb-0">Equipos sin Servicio por Modelo</h5>
+                            <span class="toggle-icon">▼</span>
+                        </div>
+                        <div id="modelTotals" class="section-content">
+                            <div class="row">
+                                <!-- Aquí se mostrarán los totales por modelo -->
+                            </div>
+                        </div>
+
+                        <div class="section-header" onclick="toggleSection('equipmentDetails')">
+                            <h5 class="mb-0">Detalle de Equipos por Modelo</h5>
+                            <span class="toggle-icon">▼</span>
+                        </div>
+                        <div id="equipmentDetails" class="section-content">
+                            <div id="equipmentByModel">
+                                <!-- Aquí se mostrarán los equipos agrupados por modelo -->
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -220,151 +452,403 @@
                 </div>
             </div>
         </div>
+
+
     </div>
 
     <script>
-        document.getElementById('soldEquipmentForm').addEventListener('submit', async (e) => {
-            e.preventDefault();
-            const file = document.getElementById('soldEquipmentFile').files[0];
-            if (!file) {
-                alert('Please select a file');
-                return;
+        // Función para mostrar notificaciones
+        function showNotification(message, type = 'info') {
+            const notification = document.getElementById('notification');
+            notification.textContent = message;
+            notification.className = `notification ${type}`;
+            notification.style.display = 'block';
+            
+            // Ocultar después de 5 segundos
+            setTimeout(() => {
+                notification.style.display = 'none';
+            }, 5000);
+        }
+        
+        // Función para mostrar/ocultar el spinner de carga
+        function toggleLoadingSpinner(show, buttonId) {
+            const button = document.getElementById(buttonId);
+            if (show) {
+                button.disabled = true;
+                button.innerHTML = '<span class="loading-spinner"></span> Cargando...';
+            } else {
+                button.disabled = false;
+                button.innerHTML = button.getAttribute('data-original-text') || 'Calcular POPS';
             }
-
-            const reader = new FileReader();
-            reader.onload = async (e) => {
-                try {
-                    const data = JSON.parse(e.target.result);
-                    const response = await fetch('/upload/sold-equipment/', {
-                        method: 'POST',
-                        headers: {
-                            'Content-Type': 'application/json',
-                        },
-                        body: JSON.stringify(data)
+        }
+        
+        // Guardar el texto original de los botones
+        document.addEventListener('DOMContentLoaded', function() {
+            const buttons = document.querySelectorAll('button');
+            buttons.forEach(button => {
+                button.setAttribute('data-original-text', button.innerHTML);
+            });
+            
+            // Variables para almacenar las instancias de los gráficos
+            let popsChart = null;
+            let revenueChart = null;
+            
+            // Agregar event listeners para los formularios
+            document.getElementById('soldEquipmentForm').addEventListener('submit', handleFileUpload);
+            document.getElementById('serviceRecordsForm').addEventListener('submit', handleFileUpload);
+            
+            // Agregar event listener para el botón de calcular POPS
+            document.getElementById('calculatePops').addEventListener('click', function() {
+                toggleLoadingSpinner(true, 'calculatePops');
+                
+                fetch('/calculate-monthly-pops/')
+                    .then(response => {
+                        if (!response.ok) {
+                            throw new Error(`Error del servidor: ${response.status} ${response.statusText}`);
+                        }
+                        return response.json();
+                    })
+                    .then(result => {
+                        if (result.status === 'success') {
+                            console.log('Datos recibidos:', result); // Para depuración
+                            
+                            // Destruir gráficos existentes si existen
+                            if (popsChart) {
+                                popsChart.destroy();
+                                popsChart = null;
+                            }
+                            if (revenueChart) {
+                                revenueChart.destroy();
+                                revenueChart = null;
+                            }
+                            
+                            // Limpiar gráficos anteriores
+                            const popsCanvas = document.getElementById('popsChart');
+                            const revenueCanvas = document.getElementById('revenueChart');
+                            
+                            // Crear nuevos canvas
+                            popsCanvas.innerHTML = '';
+                            revenueCanvas.innerHTML = '';
+                            
+                            // Preparar datos para los gráficos
+                            const months = result.monthly_results.map(item => item.month);
+                            const recentPops = result.monthly_results.map(item => item.recent_pops);
+                            const olderPops = result.monthly_results.map(item => item.older_pops);
+                            const revenue = result.monthly_results.map(item => item.total_revenue);
+                            
+                            console.log('Datos preparados:', { months, recentPops, olderPops, revenue }); // Para depuración
+                            
+                            // Crear gráfico de POPS
+                            const popsCtx = popsCanvas.getContext('2d');
+                            popsChart = new Chart(popsCtx, {
+                                type: 'line',
+                                data: {
+                                    labels: months,
+                                    datasets: [{
+                                        label: 'POPS -10 años',
+                                        data: recentPops,
+                                        borderColor: 'rgb(75, 192, 192)',
+                                        tension: 0.1
+                                    }, {
+                                        label: 'POPS +10 años',
+                                        data: olderPops,
+                                        borderColor: 'rgb(255, 99, 132)',
+                                        tension: 0.1
+                                    }, {
+                                        label: 'Objetivo (40%)',
+                                        data: Array(months.length).fill(40),
+                                        borderColor: 'rgb(255, 159, 64)',
+                                        borderWidth: 2,
+                                        borderDash: [5, 5],
+                                        fill: false,
+                                        pointRadius: 0
+                                    }]
+                                },
+                                options: {
+                                    responsive: true,
+                                    maintainAspectRatio: false,
+                                    scales: {
+                                        y: {
+                                            beginAtZero: true,
+                                            max: 100,
+                                            title: {
+                                                display: true,
+                                                text: 'POPS (%)'
+                                            }
+                                        }
+                                    },
+                                    plugins: {
+                                        tooltip: {
+                                            callbacks: {
+                                                label: function(context) {
+                                                    if (context.dataset.label === 'Objetivo (40%)') {
+                                                        return 'Objetivo: 40%';
+                                                    }
+                                                    return `${context.dataset.label}: ${context.raw}%`;
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            });
+                            
+                            // Gráfico de Ingresos
+                            const revenueCtx = document.getElementById('revenueChart').getContext('2d');
+                            
+                            // Calcular el promedio de ingresos
+                            const revenueData = result.monthly_results.map(item => item.total_revenue);
+                            const revenueAverage = revenueData.reduce((sum, value) => sum + value, 0) / revenueData.length;
+                            
+                            // Crear un array con el valor promedio para cada mes
+                            const revenueAverageData = Array(revenueData.length).fill(revenueAverage);
+                            
+                            if (revenueChart) {
+                                revenueChart.destroy();
+                            }
+                            
+                            revenueChart = new Chart(revenueCtx, {
+                                type: 'bar',
+                                data: {
+                                    labels: months,
+                                    datasets: [
+                                        {
+                                            label: 'Ingresos Mensuales',
+                                            data: revenueData,
+                                            backgroundColor: 'rgba(54, 162, 235, 0.5)',
+                                            borderColor: 'rgba(54, 162, 235, 1)',
+                                            borderWidth: 1
+                                        },
+                                        {
+                                            label: 'Promedio',
+                                            data: revenueAverageData,
+                                            type: 'line',
+                                            borderColor: 'rgba(255, 99, 132, 1)',
+                                            borderWidth: 2,
+                                            borderDash: [5, 5],
+                                            fill: false
+                                        }
+                                    ]
+                                },
+                                options: {
+                                    responsive: true,
+                                    scales: {
+                                        y: {
+                                            beginAtZero: true,
+                                            title: {
+                                                display: true,
+                                                text: 'Ingresos ($)'
+                                            }
+                                        },
+                                        x: {
+                                            title: {
+                                                display: true,
+                                                text: 'Mes'
+                                            }
+                                        }
+                                    },
+                                    plugins: {
+                                        title: {
+                                            display: true,
+                                            text: 'Ingresos Mensuales'
+                                        },
+                                        tooltip: {
+                                            callbacks: {
+                                                label: function(context) {
+                                                    if (context.dataset.label === 'Promedio') {
+                                                        return `Promedio: $${revenueAverage.toFixed(2)}`;
+                                                    }
+                                                    return `Ingresos: $${context.raw.toFixed(2)}`;
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            });
+                            
+                            // Actualizar tabla de resultados mensuales
+                            const tbody = document.getElementById('resultsTable');
+                            tbody.innerHTML = '';
+                            
+                            if (result.monthly_results && result.monthly_results.length > 0) {
+                                result.monthly_results.forEach(data => {
+                                    const row = document.createElement('tr');
+                                    row.innerHTML = `
+                                        <td>${data.month}</td>
+                                        <td>${data.total_equipment}</td>
+                                        <td>${data.total_services}</td>
+                                        <td>${data.recent_services}</td>
+                                        <td>${data.recent_pops}%</td>
+                                        <td>${data.older_services}</td>
+                                        <td>${data.older_pops}%</td>
+                                        <td>$${data.total_revenue.toLocaleString('es-AR', {minimumFractionDigits: 2, maximumFractionDigits: 2})}</td>
+                                    `;
+                                    tbody.appendChild(row);
+                                });
+                            } else {
+                                const row = document.createElement('tr');
+                                row.innerHTML = '<td colspan="8" class="text-center">No hay datos disponibles</td>';
+                                tbody.appendChild(row);
+                            }
+                            
+                            // Actualizar tabla de modelos más vendidos
+                            const soldTbody = document.getElementById('topSoldModelsTable');
+                            soldTbody.innerHTML = '';
+                            
+                            if (result.top_sold_models && result.top_sold_models.length > 0) {
+                                result.top_sold_models.forEach(model => {
+                                    const row = document.createElement('tr');
+                                    row.innerHTML = `
+                                        <td>${model.model}</td>
+                                        <td>${model.count}</td>
+                                    `;
+                                    soldTbody.appendChild(row);
+                                });
+                            } else {
+                                const row = document.createElement('tr');
+                                row.innerHTML = '<td colspan="2" class="text-center">No hay datos disponibles</td>';
+                                soldTbody.appendChild(row);
+                            }
+                            
+                            // Actualizar tabla de modelos más servidos
+                            const servicedTbody = document.getElementById('topServicedModelsTable');
+                            servicedTbody.innerHTML = '';
+                            
+                            if (result.top_serviced_models && result.top_serviced_models.length > 0) {
+                                result.top_serviced_models.forEach(model => {
+                                    const row = document.createElement('tr');
+                                    row.innerHTML = `
+                                        <td>${model.model}</td>
+                                        <td>${model.count}</td>
+                                    `;
+                                    servicedTbody.appendChild(row);
+                                });
+                            } else {
+                                const row = document.createElement('tr');
+                                row.innerHTML = '<td colspan="2" class="text-center">No hay datos disponibles</td>';
+                                servicedTbody.appendChild(row);
+                            }
+                            
+                            // Actualizar tabla de modelos con mayor facturación
+                            const revenueTbody = document.getElementById('topRevenueModelsTable');
+                            revenueTbody.innerHTML = '';
+                            
+                            if (result.top_revenue_models && result.top_revenue_models.length > 0) {
+                                result.top_revenue_models.forEach(model => {
+                                    const row = document.createElement('tr');
+                                    row.innerHTML = `
+                                        <td>${model.model}</td>
+                                        <td>$${model.total_revenue.toLocaleString('es-AR', {minimumFractionDigits: 2, maximumFractionDigits: 2})}</td>
+                                    `;
+                                    revenueTbody.appendChild(row);
+                                });
+                            } else {
+                                const row = document.createElement('tr');
+                                row.innerHTML = '<td colspan="2" class="text-center">No hay datos disponibles</td>';
+                                revenueTbody.appendChild(row);
+                            }
+                            
+                            showNotification('POPS calculado exitosamente', 'success');
+                        } else {
+                            showNotification('Error al calcular POPS: ' + result.message, 'error');
+                        }
+                    })
+                    .catch(error => {
+                        console.error('Error:', error);
+                        showNotification('Error al calcular POPS: ' + error.message, 'error');
+                    })
+                    .finally(() => {
+                        toggleLoadingSpinner(false, 'calculatePops');
                     });
-                    const result = await response.json();
-                    if (result.status === 'success') {
-                        alert('Sold equipment data uploaded successfully');
-                    } else {
-                        alert('Error uploading sold equipment data: ' + result.message);
-                    }
-                } catch (error) {
-                    alert('Error processing file: ' + error);
-                }
-            };
-            reader.readAsText(file);
+            });
         });
 
-        document.getElementById('serviceRecordsForm').addEventListener('submit', async (e) => {
-            e.preventDefault();
-            const file = document.getElementById('serviceRecordsFile').files[0];
+        function handleFileUpload(event) {
+            event.preventDefault();
+            const form = event.target;
+            const formData = new FormData();
+            
+            // Obtener el archivo del input correspondiente
+            const fileInput = form.querySelector('input[type="file"]');
+            const file = fileInput.files[0];
+            
             if (!file) {
-                alert('Please select a file');
+                showNotification('Por favor seleccione un archivo', 'error');
                 return;
             }
-
-            const reader = new FileReader();
-            reader.onload = async (e) => {
-                try {
-                    const data = JSON.parse(e.target.result);
-                    const response = await fetch('/upload/service-records/', {
-                        method: 'POST',
-                        headers: {
-                            'Content-Type': 'application/json',
-                        },
-                        body: JSON.stringify(data)
-                    });
-                    const result = await response.json();
-                    if (result.status === 'success') {
-                        alert('Service records uploaded successfully');
-                    } else {
-                        alert('Error uploading service records: ' + result.message);
-                    }
-                } catch (error) {
-                    alert('Error processing file: ' + error);
+            
+            // Agregar el archivo al FormData con el nombre correcto
+            formData.append('file', file);
+            
+            // Mostrar el spinner
+            const spinner = document.getElementById('loadingSpinner');
+            if (spinner) spinner.style.display = 'block';
+            
+            // Determinar la URL correcta basada en el formulario
+            const url = form.id === 'soldEquipmentForm' ? '/upload/sold-equipment/' : '/upload/service-records/';
+            
+            fetch(url, {
+                method: 'POST',
+                body: formData,
+                headers: {
+                    'X-CSRFToken': getCookie('csrftoken')
                 }
-            };
-            reader.readAsText(file);
-        });
-
-        document.getElementById('calculatePops').addEventListener('click', async () => {
-            try {
-                const response = await fetch('/calculate-monthly-pops/');
-                const data = await response.json();
+            })
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status}`);
+                }
+                return response.json();
+            })
+            .then(data => {
+                // Ocultar el spinner
+                if (spinner) spinner.style.display = 'none';
                 
                 if (data.status === 'success') {
-                    // Actualizar tabla de resultados mensuales
-                    const resultsTable = document.getElementById('resultsTable');
-                    resultsTable.innerHTML = '';
-                    
-                    data.monthly_data.forEach(month => {
-                        const row = document.createElement('tr');
-                        row.innerHTML = `
-                            <td>${month.month}</td>
-                            <td>${month.total_equipment_sold}</td>
-                            <td>${month.total_services}</td>
-                            <td>${month.services_to_recent}</td>
-                            <td>${month.pops_recent}%</td>
-                            <td>${month.services_to_older}</td>
-                            <td>${month.pops_with_older}%</td>
-                        `;
-                        resultsTable.appendChild(row);
-                    });
-
-                    // Actualizar tabla de modelos más vendidos
-                    const topSoldModelsTable = document.getElementById('topSoldModelsTable');
-                    topSoldModelsTable.innerHTML = '';
-                    
-                    data.top_sold_models.forEach(model => {
-                        const row = document.createElement('tr');
-                        row.innerHTML = `
-                            <td>${model.model}</td>
-                            <td>${model.total_sold}</td>
-                        `;
-                        topSoldModelsTable.appendChild(row);
-                    });
-
-                    // Actualizar tabla de modelos con más servicios
-                    const topServicedModelsTable = document.getElementById('topServicedModelsTable');
-                    topServicedModelsTable.innerHTML = '';
-                    
-                    data.top_serviced_models.forEach(model => {
-                        const row = document.createElement('tr');
-                        row.innerHTML = `
-                            <td>${model.model}</td>
-                            <td>${model.total_services}</td>
-                        `;
-                        topServicedModelsTable.appendChild(row);
-                    });
-
-                    // Actualizar tabla de modelos con mayor facturación
-                    const topRevenueModelsTable = document.getElementById('topRevenueModelsTable');
-                    topRevenueModelsTable.innerHTML = '';
-                    
-                    data.top_revenue_models.forEach(model => {
-                        const row = document.createElement('tr');
-                        // Formatear el número con separadores de miles y dos decimales
-                        const formattedNumber = new Intl.NumberFormat('es-AR', {
-                            minimumFractionDigits: 2,
-                            maximumFractionDigits: 2
-                        }).format(model.total_revenue);
-                        row.innerHTML = `
-                            <td>${model.model}</td>
-                            <td>$${formattedNumber}</td>
-                        `;
-                        topRevenueModelsTable.appendChild(row);
-                    });
+                    showNotification(data.message, 'success');
+                    // Limpiar el formulario
+                    form.reset();
                 } else {
-                    alert('Error calculating POPS: ' + data.message);
+                    showNotification(data.message || 'Error al cargar el archivo', 'error');
                 }
-            } catch (error) {
-                alert('Error calculating POPS: ' + error);
-            }
-        });
+            })
+            .catch(error => {
+                // Ocultar el spinner
+                if (spinner) spinner.style.display = 'none';
+                console.error('Error:', error);
+                showNotification('Error al cargar el archivo: ' + error.message, 'error');
+            });
+        }
 
-        document.getElementById('getEquipmentWithoutServices').addEventListener('click', async () => {
+        // Función para obtener el token CSRF
+        function getCookie(name) {
+            let cookieValue = null;
+            if (document.cookie && document.cookie !== '') {
+                const cookies = document.cookie.split(';');
+                for (let i = 0; i < cookies.length; i++) {
+                    const cookie = cookies[i].trim();
+                    if (cookie.substring(0, name.length + 1) === (name + '=')) {
+                        cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                        break;
+                    }
+                }
+            }
+            return cookieValue;
+        }
+
+        document.getElementById('filterServices').addEventListener('click', async () => {
             try {
-                const response = await fetch('/equipment-without-services/');
+                const startDate = document.getElementById('serviceStartDate').value;
+                const endDate = document.getElementById('serviceEndDate').value;
+                
+                if (!startDate || !endDate) {
+                    alert('Por favor seleccione ambas fechas');
+                    return;
+                }
+                
+                let url = '/equipment-without-services/';
+                url += `?start_date=${startDate}&end_date=${endDate}`;
+                
+                const response = await fetch(url);
                 if (!response.ok) {
                     throw new Error(`HTTP error! status: ${response.status}`);
                 }
@@ -379,30 +863,243 @@
                 document.getElementById('totalWithoutService').textContent = data.total_without_service;
                 document.getElementById('totalWithService').textContent = data.total_sold - data.total_without_service;
                 
-                // Actualizar tabla
-                const tbody = document.getElementById('equipmentWithoutServicesBody');
-                tbody.innerHTML = '';
+                // Actualizar totales por modelo
+                const modelTotalsDiv = document.getElementById('modelTotals');
+                modelTotalsDiv.innerHTML = '';
                 
-                if (data.equipment_without_services && Array.isArray(data.equipment_without_services)) {
-                    data.equipment_without_services.forEach(equipment => {
-                        const row = document.createElement('tr');
-                        row.innerHTML = `
-                            <td>${equipment.serial_number || ''}</td>
-                            <td>${equipment.model || ''}</td>
-                            <td>${equipment.customer || 'N/A'}</td>
-                            <td>${equipment.sale_date || ''}</td>
-                            <td>${equipment.years_without_service ? equipment.years_without_service.toFixed(1) : ''}</td>
+                if (data.model_totals) {
+                    Object.entries(data.model_totals).forEach(([model, total]) => {
+                        const col = document.createElement('div');
+                        col.className = 'col-md-3 mb-2';
+                        col.innerHTML = `
+                            <div class="alert alert-warning model-card">
+                                <strong>${model}:</strong> ${total} equipos sin servicio
+                            </div>
                         `;
-                        tbody.appendChild(row);
+                        modelTotalsDiv.appendChild(col);
                     });
-                } else {
-                    console.error('No se encontraron equipos sin servicios en la respuesta');
+                }
+                
+                // Actualizar equipos agrupados por modelo
+                const equipmentByModelDiv = document.getElementById('equipmentByModel');
+                equipmentByModelDiv.innerHTML = '';
+                
+                if (data.equipment_by_model) {
+                    Object.entries(data.equipment_by_model).forEach(([model, equipment]) => {
+                        const modelSection = document.createElement('div');
+                        modelSection.className = 'mb-4';
+                        modelSection.innerHTML = `
+                            <div class="section-header" onclick="toggleSection('model-${model}')">
+                                <h6 class="mb-0">Modelo: ${model}</h6>
+                                <span class="toggle-icon">▼</span>
+                            </div>
+                            <div id="model-${model}" class="section-content">
+                                <div class="table-responsive">
+                                    <table class="table table-striped">
+                                        <thead>
+                                            <tr>
+                                                <th>PIN</th>
+                                                <th>Cliente</th>
+                                                <th>Fecha de Venta</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            ${equipment.map(eq => `
+                                                <tr>
+                                                    <td>${eq.serial_number || ''}</td>
+                                                    <td>${eq.customer || 'N/A'}</td>
+                                                    <td>${eq.sale_date || ''}</td>
+                                                </tr>
+                                            `).join('')}
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        `;
+                        equipmentByModelDiv.appendChild(modelSection);
+                    });
                 }
             } catch (error) {
                 console.error('Error:', error);
                 alert('Error obteniendo equipos sin servicios: ' + error.message);
             }
         });
+
+        document.getElementById('getEquipmentWithoutServices').addEventListener('click', async () => {
+            try {
+                const startDate = document.getElementById('serviceStartDate').value;
+                const endDate = document.getElementById('serviceEndDate').value;
+                
+                let url = '/equipment-without-services/';
+                if (startDate && endDate) {
+                    url += `?start_date=${startDate}&end_date=${endDate}`;
+                }
+                
+                const response = await fetch(url);
+                if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status}`);
+                }
+                const data = await response.json();
+                
+                // Actualizar períodos
+                document.getElementById('salesPeriod').textContent = data.sales_period;
+                document.getElementById('servicesPeriod').textContent = data.services_period;
+                
+                // Actualizar contadores
+                document.getElementById('totalSold').textContent = data.total_sold;
+                document.getElementById('totalWithoutService').textContent = data.total_without_service;
+                document.getElementById('totalWithService').textContent = data.total_sold - data.total_without_service;
+                
+                // Actualizar totales por modelo
+                const modelTotalsDiv = document.getElementById('modelTotals');
+                modelTotalsDiv.innerHTML = '';
+                
+                if (data.model_totals) {
+                    Object.entries(data.model_totals).forEach(([model, total]) => {
+                        const col = document.createElement('div');
+                        col.className = 'col-md-3 mb-2';
+                        col.innerHTML = `
+                            <div class="alert alert-warning model-card">
+                                <strong>${model}:</strong> ${total} equipos sin servicio
+                            </div>
+                        `;
+                        modelTotalsDiv.appendChild(col);
+                    });
+                }
+                
+                // Actualizar equipos agrupados por modelo
+                const equipmentByModelDiv = document.getElementById('equipmentByModel');
+                equipmentByModelDiv.innerHTML = '';
+                
+                if (data.equipment_by_model) {
+                    Object.entries(data.equipment_by_model).forEach(([model, equipment]) => {
+                        const modelSection = document.createElement('div');
+                        modelSection.className = 'mb-4';
+                        modelSection.innerHTML = `
+                            <div class="section-header" onclick="toggleSection('model-${model}')">
+                                <h6 class="mb-0">Modelo: ${model}</h6>
+                                <span class="toggle-icon">▼</span>
+                            </div>
+                            <div id="model-${model}" class="section-content">
+                                <div class="table-responsive">
+                                    <table class="table table-striped">
+                                        <thead>
+                                            <tr>
+                                                <th>PIN</th>
+                                                <th>Cliente</th>
+                                                <th>Fecha de Venta</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            ${equipment.map(eq => `
+                                                <tr>
+                                                    <td>${eq.serial_number || ''}</td>
+                                                    <td>${eq.customer || 'N/A'}</td>
+                                                    <td>${eq.sale_date || ''}</td>
+                                                </tr>
+                                            `).join('')}
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        `;
+                        equipmentByModelDiv.appendChild(modelSection);
+                    });
+                }
+            } catch (error) {
+                console.error('Error:', error);
+                alert('Error obteniendo equipos sin servicios: ' + error.message);
+            }
+        });
+
+        function toggleSection(sectionId) {
+            const content = document.getElementById(sectionId);
+            const header = content.previousElementSibling;
+            
+            if (content.style.display === 'none') {
+                content.style.display = 'block';
+                header.querySelector('.toggle-icon').style.transform = 'rotate(0deg)';
+            } else {
+                content.style.display = 'none';
+                header.querySelector('.toggle-icon').style.transform = 'rotate(-90deg)';
+            }
+        }
+
+        async function fetchEquipmentWithoutService() {
+            const startDate = document.getElementById('startDate').value;
+            const endDate = document.getElementById('endDate').value;
+            
+            if (!startDate || !endDate) {
+                alert('Por favor seleccione un rango de fechas');
+                return;
+            }
+            
+            try {
+                const response = await fetch(`/pops/equipment-without-service/?start_date=${startDate}&end_date=${endDate}`);
+                if (!response.ok) {
+                    throw new Error('Error al obtener los datos');
+                }
+                
+                const data = await response.json();
+                displayEquipmentWithoutService(data);
+            } catch (error) {
+                console.error('Error:', error);
+                alert('Error al obtener los datos de equipos sin servicio');
+            }
+        }
+        
+        function displayEquipmentWithoutService(data) {
+            // Mostrar resumen general
+            const summarySection = document.getElementById('equipmentSummary');
+            summarySection.innerHTML = `
+                <div class="alert alert-info">
+                    <h5>Resumen General</h5>
+                    <p>Total de Equipos: ${data.total_equipment}</p>
+                    <p>Equipos sin Servicio: ${data.equipment_without_service.length}</p>
+                    <p>Porcentaje sin Servicio: ${((data.equipment_without_service.length / data.total_equipment) * 100).toFixed(2)}%</p>
+                </div>
+            `;
+            
+            // Mostrar resumen por modelo
+            const modelSummarySection = document.getElementById('modelSummary');
+            modelSummarySection.innerHTML = '';
+            
+            Object.entries(data.model_summary).forEach(([model, count]) => {
+                const modelCard = document.createElement('div');
+                modelCard.className = 'model-card';
+                modelCard.innerHTML = `
+                    <h6>${model}</h6>
+                    <div class="model-stats">
+                        <span>Equipos sin servicio: ${count}</span>
+                        <span>Porcentaje: ${((count / data.total_equipment) * 100).toFixed(2)}%</span>
+                    </div>
+                `;
+                modelSummarySection.appendChild(modelCard);
+            });
+            
+            // Mostrar lista de equipos
+            const equipmentListSection = document.getElementById('equipmentList');
+            equipmentListSection.innerHTML = '';
+            
+            data.equipment_without_service.forEach(equipment => {
+                const equipmentItem = document.createElement('div');
+                equipmentItem.className = 'equipment-item';
+                equipmentItem.innerHTML = `
+                    <div class="equipment-info">
+                        <div class="equipment-serial">${equipment.serial_number}</div>
+                        <div class="equipment-model">${equipment.model}</div>
+                    </div>
+                    <div class="equipment-date">Vendido: ${new Date(equipment.sale_date).toLocaleDateString()}</div>
+                `;
+                equipmentListSection.appendChild(equipmentItem);
+            });
+            
+            // Mostrar la sección de resultados
+            document.getElementById('equipmentResults').classList.remove('d-none');
+        }
+
+        // Agregar event listener para el botón de búsqueda
+        document.getElementById('searchEquipmentBtn').addEventListener('click', fetchEquipmentWithoutService);
     </script>
 </body>
 </html>
